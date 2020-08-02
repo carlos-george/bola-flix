@@ -1,69 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
-const CadastroCategoria = () => {
-  const initialValues = {
+function CadastroCategoria() {
+  const valoresIniciais = {
     nome: '',
     descricao: '',
     cor: '',
   };
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(initialValues);
 
   useEffect(() => {
-    const url = window.location.hostname.includes('localhost')
+    const URL_TOP = window.location.hostname.includes('localhost')
       ? 'http://localhost:8080/categorias'
       : 'https://bola-flix.herokuapp.com/categorias';
-    fetch(url).then(async (resposta) => {
-      const res = await resposta.json();
-      setCategorias([
-        ...res,
-      ]);
-    });
+    // E a ju ama variáveis
+    fetch(URL_TOP)
+      .then(async (respostaDoServidor) => {
+        const resposta = await respostaDoServidor.json();
+        setCategorias([
+          ...resposta,
+        ]);
+      });
   }, []);
-
-  const setValue = (chave, valor) => {
-    // chave: nome, descricao, bla, bli
-    setValues({
-      ...values,
-      [chave]: valor, // nome: 'valor'
-    });
-  };
-
-  const handleChange = (infosDoEvento) => {
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
-    );
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setCategorias([
-      ...categorias,
-      values,
-    ]);
-
-    setValues(initialValues);
-  };
 
   return (
     <PageDefault>
       <h1>
         Cadastro de Categoria:
-        {' '}
         {values.nome}
       </h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={function handleSubmit(infosDoEvento) {
+        infosDoEvento.preventDefault();
+        setCategorias([
+          ...categorias,
+          values,
+        ]);
+
+        clearForm();
+      }}
+      >
 
         <FormField
           label="Nome da Categoria"
-          type="text"
           name="nome"
           value={values.nome}
           onChange={handleChange}
@@ -76,17 +62,6 @@ const CadastroCategoria = () => {
           value={values.descricao}
           onChange={handleChange}
         />
-        {/* <div>
-              <label>
-                Descrição:
-                <textarea
-                  type="text"
-                  value={values.descricao}
-                  name="descricao"
-                  onChange={handleChange}
-                />
-              </label>
-            </div> */}
 
         <FormField
           label="Cor"
@@ -95,32 +70,25 @@ const CadastroCategoria = () => {
           value={values.cor}
           onChange={handleChange}
         />
-        {/* <div>
-              <label>
-                Cor:
-                <input
-                  type="color"
-                  value={values.cor}
-                  name="cor"
-                  onChange={handleChange}
-                />
-              </label>
-            </div> */}
 
-        <Button>
+        <Button type="submit">
           Cadastrar
         </Button>
       </form>
 
+      {categorias.length === 0 && (
+        <div>
+          {/* Cargando... */}
+          Loading...
+        </div>
+      )}
+
       <ul>
-        {categorias.map((categoria, indice) => {
-          const i = indice;
-          return (
-            <li key={`${categoria}${i}`}>
-              {categoria.titulo}
-            </li>
-          );
-        })}
+        {categorias.map((categoria) => (
+          <li key={`${categoria.titulo}`}>
+            {categoria.titulo}
+          </li>
+        ))}
       </ul>
 
       <Link to="/">
@@ -128,6 +96,6 @@ const CadastroCategoria = () => {
       </Link>
     </PageDefault>
   );
-};
+}
 
 export default CadastroCategoria;

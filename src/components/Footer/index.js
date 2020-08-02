@@ -8,13 +8,13 @@ function Footer() {
         <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
       </a>
       <p>
-        Criado por 
+        Criado por
         {' '}
-        <a href="https://www.linkedin.com/in/carlos-george-58856a1b" target="_blank">
-          Carlos George 
+        <a href="https://www.linkedin.com/in/carlos-george-58856a1b" rel="noopener noreferrer" target="_blank">
+          Carlos George
         </a>
         {' '}
-          durante a
+        durante a
         {' '}
         <a href="https://www.alura.com.br/">
           Imersão React da Alura
