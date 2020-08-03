@@ -45,7 +45,7 @@ const Input = styled.input`
   border-bottom: 4px solid #53585D;
   
   padding: 16px 16px;
-  margin-bottom: 45px;
+  /* margin-bottom: 45px; */
   
   resize: none;
   border-radius: 4px;
@@ -65,7 +65,13 @@ const Input = styled.input`
 `;
 
 function FormField({
-  label, type, name, value, onChange, suggestions,
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  suggestions,
+  onBlur,
 }) {
   const fieldId = `id_${name}`;
   const isTypeTextarea = type === 'textarea';
@@ -87,6 +93,7 @@ function FormField({
           name={name}
           hasValue={hasValue}
           onChange={onChange}
+          onBlur={onBlur}
           autoComplete={hasSuggestions ? 'off' : 'on'}
           list={hasSuggestions ? `suggestionFor_${fieldId}` : undefined}
         />
@@ -118,6 +125,7 @@ FormField.defaultProps = {
   value: '',
   onChange: () => {},
   suggestions: [],
+  onBlur: () => {},
 };
 
 FormField.propTypes = {
@@ -127,6 +135,7 @@ FormField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   suggestions: PropTypes.arrayOf(PropTypes.string),
+  onBlur: PropTypes.func,
 };
 
 export default FormField;

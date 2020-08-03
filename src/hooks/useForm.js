@@ -1,7 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function useForm(valoresIniciais) {
+function useForm({
+  valoresIniciais,
+  validate,
+}) {
   const [values, setValues] = useState(valoresIniciais);
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+
+  function validateValues(newValues) {
+    setErrors(validate(newValues));
+  }
+
+  useEffect(() => {
+    validateValues(values);
+  }, [values]);
 
   function setValue(chave, valor) {
     // chave: nome, descricao, bla, bli
@@ -18,6 +31,15 @@ function useForm(valoresIniciais) {
     );
   }
 
+  function handleBlur(event) {
+    const field = event.target.getAttribute('name');
+
+    setTouched({
+      ...touched,
+      [field]: true,
+    });
+  }
+
   function clearForm() {
     setValues(valoresIniciais);
   }
@@ -26,6 +48,12 @@ function useForm(valoresIniciais) {
     values,
     handleChange,
     clearForm,
+    errors,
+    setErrors,
+    touched,
+    setTouched,
+    handleBlur,
+    validateValues,
   };
 }
 
