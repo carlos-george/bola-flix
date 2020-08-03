@@ -5,8 +5,8 @@
       "titulo": "Front End",
       "cor": "#6BD1FF",
       "link_extra": {
-        "text": "Formação de Front End na Alura",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
+        "text": "Vídeos relacionados com desenvolvimento Front End",
+        "url": "https://www.youtube.com/playlist?list=PLYGIfGMkaVYCXabmpxcjUUO3-ODWES0-G"
       }
     },
     {
@@ -14,40 +14,37 @@
       "titulo": "Back End",
       "cor": "#00C86F",
       "link_extra": {
-        "text": "Cursos de Back End na Alura",
-        "url": "https://www.alura.com.br/cursos-online-programacao"
+        "text": "Vídeos relacionados com desenvolvimento Back End",
+        "url": "https://www.youtube.com/playlist?list=PLYGIfGMkaVYCXabmpxcjUUO3-ODWES0-G"
       }
     },
     {
       "id": 3,
       "titulo": "Data Science e Inteligência Artificial",
-      "cor": "#9cd33b",
-      "link_extra": {
-        "text": "Cursos de Data Science na Alura",
-        "url": "https://www.alura.com.br/cursos-online-mobile"
-      }
+      "cor": "#9cd33b"
     },
     {
       "id": 4,
-      "titulo": "Filmes",
+      "titulo": "Músicas",
       "cor": "orange"
     },
     {
       "id": 5,
-      "titulo": "Games",
-      "cor": "red",
-      "link_extra": {
-        "text": "Formação de Jogos na Alura",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      }
+      "titulo": "Culinária",
+      "cor": "red"
+    },
+    {
+      "titulo": "Viajantes",
+      "cor": "#ce6c1c",
+      "id": 6
     }
   ],
   "videos": [
     {
       "id": 1,
       "categoriaId": 1,
-      "titulo": "SEO com React",
-      "url": "https://www.youtube.com/watch?v=c8mVlakBESE"
+      "titulo": "Como fazer validações de formulário com React?",
+      "url": "https://youtu.be/-nYNd6EuZHU"
     },
     {
       "id": 2,
@@ -118,8 +115,8 @@
     {
       "id": 13,
       "categoriaId": 3,
-      "titulo": "Teste de Turing",
-      "url": "https://www.youtube.com/watch?v=BaPGU4JWa34"
+      "titulo": "DIALOGFLOW WhatsApp - Parte 1 Introdução",
+      "url": "https://youtu.be/deTNNfqchfQ"
     },
     {
       "id": 14,
@@ -140,70 +137,52 @@
       "url": "https://www.youtube.com/watch?v=gxyjGmOV540"
     },
     {
-      "id": 17,
-      "categoriaId": 4,
-      "titulo": "Interestellar",
-      "url": "https://www.youtube.com/watch?v=frD_IiY_A3E"
-    },
-    {
-      "id": 18,
-      "categoriaId": 4,
-      "titulo": "Gattaca",
-      "url": "https://www.youtube.com/watch?v=Dl0tYLbrhhs"
-    },
-    {
-      "id": 19,
-      "categoriaId": 4,
-      "titulo": "A Chegada",
-      "url": "https://www.youtube.com/watch?v=rNciXGzYZms"
-    },
-    {
-      "id": 20,
-      "categoriaId": 4,
-      "titulo": "Feitiço do Tempo",
-      "url": "https://www.youtube.com/watch?v=zi8d69P9NvI"
-    },
-    {
-      "id": 21,
-      "categoriaId": 5,
-      "titulo": "Final Fantasy 7",
-      "url": "https://www.youtube.com/watch?v=I_ATSCTnUD8"
-    },
-    {
-      "id": 22,
-      "categoriaId": 5,
-      "titulo": "Assassins Creed Valhalla",
-      "url": "https://www.youtube.com/watch?v=KDfdjB9uL0U"
-    },
-    {
-      "id": 23,
-      "categoriaId": 5,
-      "titulo": "God of War 4",
-      "url": "https://www.youtube.com/watch?v=FyIwEFXOcaE"
-    },
-    {
-      "id": 24,
-      "categoriaId": 5,
-      "titulo": "Resident Evil 8",
-      "url": "https://www.youtube.com/watch?v=JSapXD9vxYA"
-    },
-    {
       "titulo": "Video padrão",
       "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
       "categoriaId": 1,
       "id": 25
     },
     {
-      "titulo": "Video padrão",
-      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
-      "categoriaId": 1,
-      "id": 26
+      "titulo": "QUASE CAÍMOS NO GOLPE DA KOMBI FILÉ!!! TemporadaExtra.ep25",
+      "url": "https://www.youtube.com/watch?v=HaijNndurz4",
+      "categoriaId": 6,
+      "id": 28
     },
     {
-      "titulo": "Video padrão",
-      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "titulo": "NHOQUE DE MANDIOQUINHA :: UNDERCHEF",
+      "url": "https://youtu.be/JST8XfE9w3s",
       "categoriaId": 5,
-      "id": 27
+      "id": 29
+    },
+    {
+      "titulo": "Isaac Chambers - Moonlight Ride (ft. Blue Moon)",
+      "url": "https://youtu.be/SAsJ_n747T4",
+      "categoriaId": 4,
+      "id": 30
+    },
+    {
+      "titulo": "Stick Figure - Smokin' Love, ft. Collie Buddz",
+      "url": "https://youtu.be/X-c9ZS4iVkA",
+      "categoriaId": 4,
+      "id": 31
+    },
+    {
+      "titulo": "COMO FAZER SABORIZAÇÃO DE KOMBUCHA - 2ª FERMENTAÇÃO",
+      "url": "https://youtu.be/mq_QhDUylx4",
+      "categoriaId": 5,
+      "id": 32
+    },
+    {
+      "titulo": "FAXINANDO A KOMBI PRA VOLTAR PRA ESTRADA!",
+      "url": "https://www.youtube.com/watch?v=QFV696UxP8Y&t=65s",
+      "categoriaId": 6,
+      "id": 33
+    },
+    {
+      "titulo": "JALAPÃO DE CARRO - DICAS ESSENCIAIS PARA UMA VIAGEM INCRÍVEL",
+      "url": "https://www.youtube.com/watch?v=VoZn2h3aQYE",
+      "categoriaId": 6,
+      "id": 34
     }
   ]
 }

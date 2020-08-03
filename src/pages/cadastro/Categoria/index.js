@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
+  const history = useHistory();
   const valoresIniciais = {
     nome: '',
     descricao: '',
@@ -17,16 +19,10 @@ function CadastroCategoria() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    const URL_TOP = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://bola-flix.herokuapp.com/categorias';
-    // E a ju ama variáveis
-    fetch(URL_TOP)
-      .then(async (respostaDoServidor) => {
-        const resposta = await respostaDoServidor.json();
-        setCategorias([
-          ...resposta,
-        ]);
+    categoriasRepository
+      .getAll()
+      .then((categoriasFromServer) => {
+        setCategorias(categoriasFromServer);
       });
   }, []);
 
@@ -39,10 +35,31 @@ function CadastroCategoria() {
 
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
-        setCategorias([
-          ...categorias,
-          values,
-        ]);
+
+        const categoriaEscolhida = categorias
+          .find((categoria) => categoria.titulo === values.categoria);
+
+        if (categoriaEscolhida) {
+          // eslint-disable-next-line no-alert
+          alert('Categoria já existente na base');
+          return;
+        }
+
+        categoriasRepository.create({
+          titulo: values.nome,
+          // url: values.descricao,
+          cor: values.cor,
+        })
+          .then(() => {
+            // eslint-disable-next-line no-console
+            console.log('Cadastrou com sucesso!');
+            history.push('/');
+          });
+
+        // setCategorias([
+        //   ...categorias,
+        //   values,
+        // ]);
 
         clearForm();
       }}

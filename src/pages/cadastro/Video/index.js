@@ -35,7 +35,6 @@ function CadastroVideo() {
     const categoriaEscolhida = categorias
       .find((categoria) => categoria.titulo === values.categoria);
 
-    // eslint-disable-next-line no-console
     if (!categoriaEscolhida) {
       // eslint-disable-next-line no-alert
       alert('Categoria não existente na base');
