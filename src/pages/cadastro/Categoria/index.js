@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import categoriasRepository from '../../../repositories/categorias';
 
-import './styles.css';
+const FormFieldGroup = styled.div`
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+`;
 
-// function validate(values) {
-//   const errors = {};
-
-//   if (values.nome.trim() === '') {
-//     errors.nome = 'Nome é um campo obrigatório.';
-//   }
-//   if (values.cor.trim() === '') {
-//     errors.cor = 'Cor é um campo obrigatório.';
-//   }
-
-//   return errors;
-// }
+const FormFieldError = styled.span`
+  color: #d93025;
+  font-size: 16px;
+  margin-top: 5px;
+`;
 
 function CadastroCategoria() {
   const history = useHistory();
@@ -36,9 +35,7 @@ function CadastroCategoria() {
     clearForm,
     errors,
     touched,
-    setTouched,
     handleBlur,
-    validateValues,
   } = useForm({
     valoresIniciais,
     // eslint-disable-next-line no-shadow
@@ -108,7 +105,7 @@ function CadastroCategoria() {
       }}
       >
 
-        <div className="form-field">
+        <FormFieldGroup>
           <FormField
             label="Nome da Categoria"
             name="nome"
@@ -116,10 +113,10 @@ function CadastroCategoria() {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {touched.nome && errors.nome && <span className="form-field-error">{errors.nome}</span>}
-        </div>
+          {touched.nome && errors.nome && <FormFieldError>{errors.nome}</FormFieldError>}
+        </FormFieldGroup>
 
-        <div className="form-field">
+        <FormFieldGroup>
           <FormField
             label="Descrição"
             type="textarea"
@@ -127,8 +124,8 @@ function CadastroCategoria() {
             value={values.descricao}
             onChange={handleChange}
           />
-        </div>
-        <div className="form-field">
+        </FormFieldGroup>
+        <FormFieldGroup>
           <FormField
             label="Cor"
             type="color"
@@ -137,8 +134,8 @@ function CadastroCategoria() {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {touched.cor && errors.cor && <span className="form-field-error">{errors.cor}</span>}
-        </div>
+          {touched.cor && errors.cor && <FormFieldError>{errors.cor}</FormFieldError>}
+        </FormFieldGroup>
 
         <Button type="submit">
           Cadastrar

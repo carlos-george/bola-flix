@@ -37,6 +37,11 @@
       "titulo": "Viajantes",
       "cor": "#ce6c1c",
       "id": 6
+    },
+    {
+      "titulo": "DIY",
+      "cor": "#43df82",
+      "id": 7
     }
   ],
   "videos": [
@@ -183,6 +188,18 @@
       "url": "https://www.youtube.com/watch?v=VoZn2h3aQYE",
       "categoriaId": 6,
       "id": 34
+    },
+    {
+      "titulo": "Follow The Sun #2 - Salto Corumbá - GO",
+      "url": "https://www.youtube.com/watch?v=ik06XNOJS1w",
+      "categoriaId": 4,
+      "id": 35
+    },
+    {
+      "titulo": "DIY: Vasinho de Concreto | by Aline Albino",
+      "url": "https://www.youtube.com/watch?v=wAP4EHNEhZs&t=90s",
+      "categoriaId": 7,
+      "id": 36
     }
   ]
 }
